@@ -2,3 +2,15 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+/* .listContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.listItem {
+  text-align: center;
+  padding: 15px;
+  margin: 25px;
+  border: solid 1px gray;
+} */
