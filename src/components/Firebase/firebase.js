@@ -1,4 +1,6 @@
-import app from "firebase/app";
+import { initializeApp } from "firebase/app";
+import "firebase/compat/auth";
+import firebase from "firebase/compat/app";
 import "firebase/auth";
 
 const config = {
@@ -12,10 +14,24 @@ const config = {
 
 class Firebase {
   constructor() {
-    app.initializeApp(config);
-
-    this.auth = app.auth();
+    // this.app = initializeApp(config);
+    const app = firebase.initializeApp(config);
+    const auth = firebase.auth();
   }
+
+  doCreateUserWithEmailAndPassword = (email, password) => {
+    this.auth.createUserWithEmailAndPassword(email, password);
+  };
+
+  doSignInWithEmailAndPassword = (email, password) => {
+    this.auth.signInWithEmailAndPassword(email, password);
+  };
+
+  doPasswordReset = (email) => this.auth.sendPasswordResetEmail(email);
+
+  doPasswordUpdate = (password) => {
+    this.auth.currentUser.updatePassword(password);
+  };
 }
 
 export default Firebase;
