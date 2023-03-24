@@ -15,8 +15,8 @@ const config = {
 class Firebase {
   constructor() {
     // this.app = initializeApp(config);
-    const app = firebase.initializeApp(config);
-    const auth = firebase.auth();
+    this.app = firebase.initializeApp(config);
+    this.auth = firebase.auth();
   }
 
   doCreateUserWithEmailAndPassword = (email, password) => {
